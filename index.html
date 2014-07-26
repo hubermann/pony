@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Poty Gen</title>
+
+	<style>
+		<style type="text/css">
+		body{width:500px; margin:0 auto; font-family:verdana; }
+		form, label{width:100%; float:left; margin-top:10px;}
+		form .full{width:100%; float:left; margin-top:10px;}
+		input{padding:2px 3px;}
+		label{font-weight:bold;}
+		button{margin-top:15px; float:right}
+		span{width:120px; float:left; margin:5px; display:block}
+		.link{float:left; background:#222; padding:3px 5px;color:#fff; cursor: pointer;}
+		.row{width:100%; float:left;}
+		select{width:120px;}
+		#container{width: 500px; margin:2em auto; font-family: verdana, arial, helvetica }
+	</style>
+
+	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript">
+	var valinput = 1;
+	function agregar_campo(){
+		valinput++;
+
+		variable = "<p><span>Campo</span><span>tipo</span><span>longitud</span></p><p><input type=\"text\" name=\"campo["+valinput+"]\"><select name=\"campo_tipo["+valinput+"]\" id=\"\"><option value=\"string\">string</option><option value=\"integer\">int</option><option value=\"text\">text</option><option value=\"date\">date</option></select><input type=\"text\" name=\"longitud["+valinput+"]\" id=\"\"></p>";
+		$('#campos').append(variable);
+	}
+
+</script>
+</head>
+<body>
+	<div id="container">
+		<form action="pony_coder.php" method="post">
+		
+		<p>
+		<label for="singular">Nombre del modelo en singular:</label>
+		<input type="text" name="singular" id="" class="full"></p>
+		<p>
+		<label for="singular">Nombre del modelo en plural:</label>
+		<input type="text" name="plural" id="" class="full"></p>
+		<!-- Append -->
+		<div id="campos"></div>
+
+		<p><button type="submit">Oki doki!</button></p>
+	</form>
+	<a onclick="agregar_campo()">+++</a>
+
+	</div>
+</body>
+</html>
